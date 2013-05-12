@@ -1286,3 +1286,805 @@ Processing by StatusesController#update as HTML
 Redirected to http://test.host/statuses/980190962
 Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
   [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (1.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (1.0ms)[0m  DELETE FROM "statuses"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "statuses" ("content", "created_at", "updated_at", "id", "user_id") VALUES ('MyText', '2013-05-12 17:19:48', '2013-05-12 17:19:48', 980190962, 656794443)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "statuses" ("content", "created_at", "updated_at", "id", "user_id") VALUES ('MyText', '2013-05-12 17:19:48', '2013-05-12 17:19:48', 298486374, 656794443)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "profile_name", "created_at", "updated_at", "id") VALUES ('Kris', 'Vigfusson', 'kvigfusson@gmail.com', 'krizpy86', '2013-05-12 17:19:48', '2013-05-12 17:19:48', 656794443)
+  [1m[36m (85.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mStatus Load (0.0ms)[0m  [1mSELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by StatusesController#create as HTML
+  Parameters: {"status"=>{"content"=>"Hello"}}
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (3.0ms)[0m  [1mINSERT INTO "statuses" ("content", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["content", "Hello"], ["created_at", Sun, 12 May 2013 17:19:48 UTC +00:00], ["updated_at", Sun, 12 May 2013 17:19:48 UTC +00:00], ["user_id", nil]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/statuses/980190963
+Completed 302 Found in 6ms (ActiveRecord: 3.0ms)
+  [1m[36m (2.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mStatus Load (0.0ms)[0m  [1mSELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by StatusesController#new as HTML
+Completed 401 Unauthorized in 5ms
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mStatus Load (1.0ms)[0m  SELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "statuses" [0m
+Processing by StatusesController#create as HTML
+  Parameters: {"status"=>{"content"=>"MyText"}}
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "statuses" ("content", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["content", "MyText"], ["created_at", Sun, 12 May 2013 17:19:49 UTC +00:00], ["updated_at", Sun, 12 May 2013 17:19:49 UTC +00:00], ["user_id", nil]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/statuses/980190963
+Completed 302 Found in 2ms (ActiveRecord: 1.0ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "statuses" [0m
+  [1m[35m (3.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mStatus Load (0.0ms)[0m  SELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "statuses" [0m
+Processing by StatusesController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mStatus Load (0.0ms)[0m  SELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1  [["id", "980190962"]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  DELETE FROM "statuses" WHERE "statuses"."id" = ?  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/statuses
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "statuses" 
+  [1m[36m (2.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mStatus Load (0.0ms)[0m  [1mSELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by StatusesController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mStatus Load (0.0ms)[0m  SELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1  [["id", "980190962"]]
+  Rendered statuses/_form.html.erb (136.0ms)
+Completed 200 OK in 152ms (Views: 150.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mStatus Load (0.0ms)[0m  [1mSELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by StatusesController#index as HTML
+  [1m[35mStatus Load (0.0ms)[0m  SELECT "statuses".* FROM "statuses" 
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 656794443 LIMIT 1[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 656794443 LIMIT 1
+Completed 200 OK in 63ms (Views: 61.0ms | ActiveRecord: 1.0ms)
+  [1m[36m (1.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mStatus Load (0.0ms)[0m  [1mSELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 656794443]]
+Processing by StatusesController#new as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 656794443 LIMIT 1[0m
+  Rendered statuses/_form.html.erb (2.0ms)
+Completed 200 OK in 16ms (Views: 6.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mStatus Load (1.0ms)[0m  SELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by StatusesController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mStatus Load (0.0ms)[0m  [1mSELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1[0m  [["id", "980190962"]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 656794443 LIMIT 1
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mStatus Load (0.0ms)[0m  [1mSELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by StatusesController#update as HTML
+  Parameters: {"status"=>{"content"=>"MyText"}, "id"=>"980190962"}
+  [1m[35mStatus Load (1.0ms)[0m  SELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1  [["id", "980190962"]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/statuses/980190962
+Completed 302 Found in 2ms (ActiveRecord: 1.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (1.0ms)[0m  DELETE FROM "statuses"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "statuses" ("content", "created_at", "updated_at", "id", "user_id") VALUES ('MyText', '2013-05-12 17:20:46', '2013-05-12 17:20:46', 980190962, 656794443)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "statuses" ("content", "created_at", "updated_at", "id", "user_id") VALUES ('MyText', '2013-05-12 17:20:46', '2013-05-12 17:20:46', 298486374, 656794443)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "profile_name", "created_at", "updated_at", "id") VALUES ('Kris', 'Vigfusson', 'kvigfusson@gmail.com', 'krizpy86', '2013-05-12 17:20:46', '2013-05-12 17:20:46', 656794443)
+  [1m[36m (75.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mStatus Load (1.0ms)[0m  [1mSELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by StatusesController#create as HTML
+  Parameters: {"status"=>{"content"=>"Hello"}}
+Completed 401 Unauthorized in 4ms
+  Rendered text template (0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mStatus Load (1.0ms)[0m  SELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by StatusesController#new as HTML
+Completed 401 Unauthorized in 0ms
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mStatus Load (0.0ms)[0m  [1mSELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "statuses" 
+Processing by StatusesController#create as HTML
+  Parameters: {"status"=>{"content"=>"MyText"}}
+Completed 401 Unauthorized in 0ms
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "statuses" [0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mStatus Load (0.0ms)[0m  SELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "statuses" [0m
+Processing by StatusesController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mStatus Load (0.0ms)[0m  SELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1  [["id", "980190962"]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  DELETE FROM "statuses" WHERE "statuses"."id" = ?  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/statuses
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "statuses" 
+  [1m[36m (2.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mStatus Load (0.0ms)[0m  [1mSELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by StatusesController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mStatus Load (0.0ms)[0m  SELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1  [["id", "980190962"]]
+  Rendered statuses/_form.html.erb (137.0ms)
+Completed 200 OK in 154ms (Views: 153.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mStatus Load (1.0ms)[0m  [1mSELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by StatusesController#index as HTML
+  [1m[35mStatus Load (0.0ms)[0m  SELECT "statuses".* FROM "statuses" 
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 656794443 LIMIT 1[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 656794443 LIMIT 1
+Completed 200 OK in 63ms (Views: 63.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mStatus Load (1.0ms)[0m  [1mSELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 656794443]]
+Processing by StatusesController#new as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 656794443 LIMIT 1[0m
+  Rendered statuses/_form.html.erb (3.0ms)
+Completed 200 OK in 16ms (Views: 6.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mStatus Load (0.0ms)[0m  SELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by StatusesController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mStatus Load (0.0ms)[0m  [1mSELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1[0m  [["id", "980190962"]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 656794443 LIMIT 1
+Completed 200 OK in 6ms (Views: 5.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mStatus Load (0.0ms)[0m  [1mSELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by StatusesController#update as HTML
+  Parameters: {"status"=>{"content"=>"MyText"}, "id"=>"980190962"}
+  [1m[35mStatus Load (0.0ms)[0m  SELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1  [["id", "980190962"]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/statuses/980190962
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (1.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (1.0ms)[0m  DELETE FROM "statuses"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "statuses" ("content", "created_at", "updated_at", "id", "user_id") VALUES ('MyText', '2013-05-12 17:25:16', '2013-05-12 17:25:16', 980190962, 656794443)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "statuses" ("content", "created_at", "updated_at", "id", "user_id") VALUES ('MyText', '2013-05-12 17:25:16', '2013-05-12 17:25:16', 298486374, 656794443)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "profile_name", "created_at", "updated_at", "id") VALUES ('Kris', 'Vigfusson', 'kvigfusson@gmail.com', 'krizpy86', '2013-05-12 17:25:16', '2013-05-12 17:25:16', 656794443)
+  [1m[36m (78.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mStatus Load (1.0ms)[0m  [1mSELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by StatusesController#create as HTML
+  Parameters: {"status"=>{"content"=>"Hello"}}
+Completed 401 Unauthorized in 5ms
+  Rendered text template (0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mStatus Load (0.0ms)[0m  SELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by StatusesController#new as HTML
+Completed 401 Unauthorized in 1ms
+  [1m[36m (1.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mStatus Load (0.0ms)[0m  [1mSELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 656794443]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "statuses" [0m
+Processing by StatusesController#create as HTML
+  Parameters: {"status"=>{"content"=>"MyText"}}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 656794443 LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO "statuses" ("content", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)  [["content", "MyText"], ["created_at", Sun, 12 May 2013 17:25:16 UTC +00:00], ["updated_at", Sun, 12 May 2013 17:25:16 UTC +00:00], ["user_id", nil]]
+  [1m[36m (1.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/statuses/980190963
+Completed 302 Found in 15ms (ActiveRecord: 3.0ms)
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "statuses" 
+  [1m[36m (2.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mStatus Load (0.0ms)[0m  [1mSELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "statuses" 
+Processing by StatusesController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mStatus Load (0.0ms)[0m  [1mSELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1[0m  [["id", "980190962"]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mDELETE FROM "statuses" WHERE "statuses"."id" = ?[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/statuses
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "statuses" [0m
+  [1m[35m (3.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mStatus Load (0.0ms)[0m  SELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by StatusesController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mStatus Load (0.0ms)[0m  [1mSELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1[0m  [["id", "980190962"]]
+  Rendered statuses/_form.html.erb (116.0ms)
+Completed 200 OK in 154ms (Views: 154.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (1.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mStatus Load (0.0ms)[0m  SELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by StatusesController#index as HTML
+  [1m[36mStatus Load (0.0ms)[0m  [1mSELECT "statuses".* FROM "statuses" [0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 656794443 LIMIT 1
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 656794443 LIMIT 1[0m
+Completed 200 OK in 50ms (Views: 49.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mStatus Load (0.0ms)[0m  SELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 656794443]]
+Processing by StatusesController#new as HTML
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 656794443 LIMIT 1
+  Rendered statuses/_form.html.erb (3.0ms)
+Completed 200 OK in 7ms (Views: 6.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mStatus Load (0.0ms)[0m  [1mSELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by StatusesController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mStatus Load (0.0ms)[0m  SELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1  [["id", "980190962"]]
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 656794443 LIMIT 1[0m
+Completed 200 OK in 5ms (Views: 5.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mStatus Load (0.0ms)[0m  SELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by StatusesController#update as HTML
+  Parameters: {"status"=>{"content"=>"MyText"}, "id"=>"980190962"}
+  [1m[36mStatus Load (0.0ms)[0m  [1mSELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1[0m  [["id", "980190962"]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/statuses/980190962
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "statuses"
+  [1m[36mFixture Insert (1.0ms)[0m  [1mINSERT INTO "statuses" ("content", "created_at", "updated_at", "id", "user_id") VALUES ('MyText', '2013-05-12 17:26:36', '2013-05-12 17:26:36', 980190962, 656794443)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "statuses" ("content", "created_at", "updated_at", "id", "user_id") VALUES ('MyText', '2013-05-12 17:26:36', '2013-05-12 17:26:36', 298486374, 656794443)
+  [1m[36mFixture Delete (1.0ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "profile_name", "created_at", "updated_at", "id") VALUES ('Kris', 'Vigfusson', 'kvigfusson@gmail.com', 'krizpy86', '2013-05-12 17:26:36', '2013-05-12 17:26:36', 656794443)
+  [1m[36m (88.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mStatus Load (0.0ms)[0m  [1mSELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by StatusesController#create as HTML
+  Parameters: {"status"=>{"content"=>"Hello"}}
+Completed 401 Unauthorized in 5ms
+  Rendered text template (0.0ms)
+  [1m[35m (1.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mStatus Load (0.0ms)[0m  SELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by StatusesController#new as HTML
+Completed 401 Unauthorized in 1ms
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mStatus Load (0.0ms)[0m  [1mSELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 656794443]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "statuses" [0m
+Processing by StatusesController#create as HTML
+  Parameters: {"status"=>{"content"=>"MyText"}}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 656794443 LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (3.0ms)[0m  INSERT INTO "statuses" ("content", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)  [["content", "MyText"], ["created_at", Sun, 12 May 2013 17:26:36 UTC +00:00], ["updated_at", Sun, 12 May 2013 17:26:36 UTC +00:00], ["user_id", nil]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/statuses/980190963
+Completed 302 Found in 15ms (ActiveRecord: 3.0ms)
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "statuses" 
+  [1m[36m (3.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (1.0ms)[0m  begin transaction
+  [1m[36mStatus Load (0.0ms)[0m  [1mSELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 656794443]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "statuses" [0m
+Processing by StatusesController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mStatus Load (0.0ms)[0m  SELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1  [["id", "980190962"]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "statuses" WHERE "statuses"."id" = ?  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/statuses
+Completed 302 Found in 3ms (ActiveRecord: 1.0ms)
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "statuses" 
+  [1m[36m (2.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mStatus Load (0.0ms)[0m  [1mSELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 656794443]]
+Processing by StatusesController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mStatus Load (0.0ms)[0m  [1mSELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1[0m  [["id", "980190962"]]
+  Rendered statuses/_form.html.erb (104.0ms)
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 656794443 LIMIT 1
+Completed 200 OK in 142ms (Views: 141.0ms | ActiveRecord: 1.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mStatus Load (0.0ms)[0m  [1mSELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by StatusesController#index as HTML
+  [1m[35mStatus Load (0.0ms)[0m  SELECT "statuses".* FROM "statuses" 
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 656794443 LIMIT 1[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 656794443 LIMIT 1
+Completed 200 OK in 47ms (Views: 47.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mStatus Load (0.0ms)[0m  [1mSELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 656794443]]
+Processing by StatusesController#new as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 656794443 LIMIT 1[0m
+  Rendered statuses/_form.html.erb (3.0ms)
+Completed 200 OK in 6ms (Views: 5.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mStatus Load (1.0ms)[0m  SELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by StatusesController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mStatus Load (0.0ms)[0m  [1mSELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1[0m  [["id", "980190962"]]
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 656794443 LIMIT 1
+Completed 200 OK in 4ms (Views: 2.0ms | ActiveRecord: 1.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mStatus Load (0.0ms)[0m  [1mSELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 656794443]]
+Processing by StatusesController#update as HTML
+  Parameters: {"status"=>{"content"=>"MyText"}, "id"=>"980190962"}
+  [1m[36mStatus Load (0.0ms)[0m  [1mSELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1[0m  [["id", "980190962"]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/statuses/980190962
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "statuses"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "statuses" ("content", "created_at", "updated_at", "id", "user_id") VALUES ('MyText', '2013-05-12 17:33:00', '2013-05-12 17:33:00', 980190962, 656794443)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "statuses" ("content", "created_at", "updated_at", "id", "user_id") VALUES ('MyText', '2013-05-12 17:33:00', '2013-05-12 17:33:00', 298486374, 656794443)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "profile_name", "created_at", "updated_at", "id") VALUES ('Kris', 'Vigfusson', 'kvigfusson@gmail.com', 'krizpy86', '2013-05-12 17:33:00', '2013-05-12 17:33:00', 656794443)
+  [1m[36m (99.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mStatus Load (0.0ms)[0m  [1mSELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by StatusesController#create as HTML
+  Parameters: {"status"=>{"content"=>"Hello"}}
+Completed 401 Unauthorized in 4ms
+  Rendered text template (0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mStatus Load (0.0ms)[0m  SELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by StatusesController#new as HTML
+Completed 401 Unauthorized in 1ms
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mStatus Load (0.0ms)[0m  [1mSELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 656794443]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "statuses" [0m
+Processing by StatusesController#create as HTML
+  Parameters: {"status"=>{"content"=>"MyText"}}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 656794443 LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (3.0ms)[0m  INSERT INTO "statuses" ("content", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)  [["content", "MyText"], ["created_at", Sun, 12 May 2013 17:33:00 UTC +00:00], ["updated_at", Sun, 12 May 2013 17:33:00 UTC +00:00], ["user_id", nil]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/statuses/980190963
+Completed 302 Found in 15ms (ActiveRecord: 3.0ms)
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "statuses" 
+  [1m[36m (3.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mStatus Load (0.0ms)[0m  [1mSELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 656794443]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "statuses" [0m
+Processing by StatusesController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mStatus Load (1.0ms)[0m  SELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1  [["id", "980190962"]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "statuses" WHERE "statuses"."id" = ?  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/statuses
+Completed 302 Found in 2ms (ActiveRecord: 2.0ms)
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "statuses" 
+  [1m[36m (2.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mStatus Load (0.0ms)[0m  [1mSELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 656794443]]
+Processing by StatusesController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mStatus Load (0.0ms)[0m  [1mSELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1[0m  [["id", "980190962"]]
+  Rendered statuses/_form.html.erb (104.0ms)
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 656794443 LIMIT 1
+Completed 200 OK in 142ms (Views: 141.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mStatus Load (0.0ms)[0m  [1mSELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by StatusesController#index as HTML
+  [1m[35mStatus Load (0.0ms)[0m  SELECT "statuses".* FROM "statuses" 
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 656794443 LIMIT 1[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 656794443 LIMIT 1
+Completed 200 OK in 47ms (Views: 46.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mStatus Load (0.0ms)[0m  [1mSELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by StatusesController#update as HTML
+  Parameters: {"status"=>{"content"=>"MyText"}, "id"=>"980190962"}
+  [1m[35mStatus Load (0.0ms)[0m  SELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1  [["id", "980190962"]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/statuses/980190962
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mStatus Load (0.0ms)[0m  [1mSELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 656794443]]
+Processing by StatusesController#new as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 656794443 LIMIT 1[0m
+  Rendered statuses/_form.html.erb (2.0ms)
+Completed 200 OK in 7ms (Views: 6.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mStatus Load (0.0ms)[0m  SELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by StatusesController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mStatus Load (0.0ms)[0m  [1mSELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1[0m  [["id", "980190962"]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 656794443 LIMIT 1
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (1.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "statuses"
+  [1m[36mFixture Insert (1.0ms)[0m  [1mINSERT INTO "statuses" ("content", "created_at", "updated_at", "id", "user_id") VALUES ('MyText', '2013-05-12 17:33:44', '2013-05-12 17:33:44', 980190962, 656794443)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "statuses" ("content", "created_at", "updated_at", "id", "user_id") VALUES ('MyText', '2013-05-12 17:33:44', '2013-05-12 17:33:44', 298486374, 656794443)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "profile_name", "created_at", "updated_at", "id") VALUES ('Kris', 'Vigfusson', 'kvigfusson@gmail.com', 'krizpy86', '2013-05-12 17:33:44', '2013-05-12 17:33:44', 656794443)
+  [1m[36m (70.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mStatus Load (1.0ms)[0m  [1mSELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by StatusesController#create as HTML
+  Parameters: {"status"=>{"content"=>"Hello"}}
+Completed 401 Unauthorized in 5ms
+  Rendered text template (0.0ms)
+  [1m[35m (1.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mStatus Load (0.0ms)[0m  SELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by StatusesController#new as HTML
+Completed 401 Unauthorized in 1ms
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mStatus Load (0.0ms)[0m  [1mSELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 656794443]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "statuses" [0m
+Processing by StatusesController#create as HTML
+  Parameters: {"status"=>{"content"=>"MyText"}}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 656794443 LIMIT 1
+  [1m[36m (1.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO "statuses" ("content", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)  [["content", "MyText"], ["created_at", Sun, 12 May 2013 17:33:45 UTC +00:00], ["updated_at", Sun, 12 May 2013 17:33:45 UTC +00:00], ["user_id", nil]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/statuses/980190963
+Completed 302 Found in 15ms (ActiveRecord: 3.0ms)
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "statuses" 
+  [1m[36m (2.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mStatus Load (0.0ms)[0m  [1mSELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 656794443]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "statuses" [0m
+Processing by StatusesController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mStatus Load (0.0ms)[0m  SELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1  [["id", "980190962"]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "statuses" WHERE "statuses"."id" = ?  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/statuses
+Completed 302 Found in 2ms (ActiveRecord: 1.0ms)
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "statuses" 
+  [1m[36m (2.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mStatus Load (0.0ms)[0m  [1mSELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 656794443]]
+Processing by StatusesController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 656794443 LIMIT 1[0m
+  [1m[35mStatus Load (0.0ms)[0m  SELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1  [["id", "980190962"]]
+  Rendered statuses/_form.html.erb (117.0ms)
+Completed 200 OK in 157ms (Views: 156.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mStatus Load (0.0ms)[0m  [1mSELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by StatusesController#index as HTML
+  [1m[35mStatus Load (1.0ms)[0m  SELECT "statuses".* FROM "statuses" 
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 656794443 LIMIT 1[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 656794443 LIMIT 1
+Completed 200 OK in 52ms (Views: 51.0ms | ActiveRecord: 1.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mStatus Load (1.0ms)[0m  [1mSELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by StatusesController#update as HTML
+  Parameters: {"status"=>{"content"=>"MyText"}, "id"=>"980190962"}
+Completed 401 Unauthorized in 0ms
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mStatus Load (1.0ms)[0m  SELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 656794443]]
+Processing by StatusesController#new as HTML
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 656794443 LIMIT 1
+  Rendered statuses/_form.html.erb (3.0ms)
+Completed 200 OK in 6ms (Views: 5.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mStatus Load (0.0ms)[0m  [1mSELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by StatusesController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mStatus Load (0.0ms)[0m  SELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1  [["id", "980190962"]]
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 656794443 LIMIT 1[0m
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (1.0ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (1.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "statuses"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "statuses" ("content", "created_at", "updated_at", "id", "user_id") VALUES ('MyText', '2013-05-12 17:38:03', '2013-05-12 17:38:03', 980190962, 656794443)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "statuses" ("content", "created_at", "updated_at", "id", "user_id") VALUES ('MyText', '2013-05-12 17:38:03', '2013-05-12 17:38:03', 298486374, 656794443)
+  [1m[36mFixture Delete (1.0ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "profile_name", "created_at", "updated_at", "id") VALUES ('Kris', 'Vigfusson', 'kvigfusson@gmail.com', 'krizpy86', '2013-05-12 17:38:03', '2013-05-12 17:38:03', 656794443)
+  [1m[36m (93.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (1.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (3.0ms)[0m  INSERT INTO "statuses" ("content", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)  [["content", nil], ["created_at", Sun, 12 May 2013 17:38:03 UTC +00:00], ["updated_at", Sun, 12 May 2013 17:38:03 UTC +00:00], ["user_id", nil]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (2.0ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "statuses"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "statuses" ("content", "created_at", "updated_at", "id", "user_id") VALUES ('MyText', '2013-05-12 17:42:20', '2013-05-12 17:42:20', 980190962, 656794443)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "statuses" ("content", "created_at", "updated_at", "id", "user_id") VALUES ('MyText', '2013-05-12 17:42:20', '2013-05-12 17:42:20', 298486374, 656794443)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "profile_name", "created_at", "updated_at", "id") VALUES ('Kris', 'Vigfusson', 'kvigfusson@gmail.com', 'krizpy86', '2013-05-12 17:42:21', '2013-05-12 17:42:21', 656794443)
+  [1m[36m (78.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (1.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (1.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (1.0ms)[0m  DELETE FROM "statuses"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "statuses" ("content", "created_at", "updated_at", "id", "user_id") VALUES ('MyText', '2013-05-12 17:44:01', '2013-05-12 17:44:01', 980190962, 656794443)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "statuses" ("content", "created_at", "updated_at", "id", "user_id") VALUES ('MyText', '2013-05-12 17:44:01', '2013-05-12 17:44:01', 298486374, 656794443)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "profile_name", "created_at", "updated_at", "id") VALUES ('Kris', 'Vigfusson', 'kvigfusson@gmail.com', 'krizpy86', '2013-05-12 17:44:01', '2013-05-12 17:44:01', 656794443)
+  [1m[36m (60.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (1.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (10.0ms)[0m  INSERT INTO "statuses" ("content", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)  [["content", "H"], ["created_at", Sun, 12 May 2013 17:44:01 UTC +00:00], ["updated_at", Sun, 12 May 2013 17:44:01 UTC +00:00], ["user_id", nil]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (4.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (1.0ms)[0m  DELETE FROM "statuses"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "statuses" ("content", "created_at", "updated_at", "id", "user_id") VALUES ('MyText', '2013-05-12 17:46:59', '2013-05-12 17:46:59', 980190962, 656794443)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "statuses" ("content", "created_at", "updated_at", "id", "user_id") VALUES ('MyText', '2013-05-12 17:46:59', '2013-05-12 17:46:59', 298486374, 656794443)
+  [1m[36mFixture Delete (1.0ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "profile_name", "created_at", "updated_at", "id") VALUES ('Kris', 'Vigfusson', 'kvigfusson@gmail.com', 'krizpy86', '2013-05-12 17:47:00', '2013-05-12 17:47:00', 656794443)
+  [1m[36m (69.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (1.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (1.0ms)[0m  DELETE FROM "statuses"
+  [1m[36mFixture Insert (1.0ms)[0m  [1mINSERT INTO "statuses" ("content", "created_at", "updated_at", "id", "user_id") VALUES ('MyText', '2013-05-12 17:49:52', '2013-05-12 17:49:52', 980190962, 656794443)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "statuses" ("content", "created_at", "updated_at", "id", "user_id") VALUES ('MyText', '2013-05-12 17:49:52', '2013-05-12 17:49:52', 298486374, 656794443)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "profile_name", "created_at", "updated_at", "id") VALUES ('Kris', 'Vigfusson', 'kvigfusson@gmail.com', 'krizpy86', '2013-05-12 17:49:52', '2013-05-12 17:49:52', 656794443)
+  [1m[36m (107.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "statuses"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "statuses" ("content", "created_at", "updated_at", "id", "user_id") VALUES ('MyText', '2013-05-12 17:56:24', '2013-05-12 17:56:24', 980190962, 656794443)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "statuses" ("content", "created_at", "updated_at", "id", "user_id") VALUES ('MyText', '2013-05-12 17:56:24', '2013-05-12 17:56:24', 298486374, 656794443)
+  [1m[36mFixture Delete (1.0ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "profile_name", "created_at", "updated_at", "id") VALUES ('Kris', 'Vigfusson', 'kvigfusson@gmail.com', 'krizpy86', '2013-05-12 17:56:24', '2013-05-12 17:56:24', 656794443)
+  [1m[36m (71.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."profile_name" IS NULL LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."profile_name" IS NULL LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (1.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."profile_name" IS NULL LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."profile_name" = 'My Profile With Spaces' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 656794443]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."profile_name" = 'krizpy86' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (1.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "statuses"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "statuses" ("content", "created_at", "updated_at", "id", "user_id") VALUES ('MyText', '2013-05-12 17:59:46', '2013-05-12 17:59:46', 980190962, 656794443)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "statuses" ("content", "created_at", "updated_at", "id", "user_id") VALUES ('MyText', '2013-05-12 17:59:46', '2013-05-12 17:59:46', 298486374, 656794443)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "profile_name", "created_at", "updated_at", "id") VALUES ('Kris', 'Vigfusson', 'kvigfusson@gmail.com', 'krizpy86', '2013-05-12 17:59:46', '2013-05-12 17:59:46', 656794443)
+  [1m[36m (82.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (1.0ms)[0m  begin transaction
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'kvigfusson@gmail.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."profile_name" = 'krizpy86' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."profile_name" IS NULL LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."profile_name" IS NULL LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."profile_name" IS NULL LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."profile_name" = 'My Profile With Spaces' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 656794443]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."profile_name" = 'krizpy86' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (1.0ms)[0m  DELETE FROM "statuses"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "statuses" ("content", "created_at", "updated_at", "id", "user_id") VALUES ('MyText', '2013-05-12 18:01:26', '2013-05-12 18:01:26', 980190962, 656794443)[0m
+  [1m[35mFixture Insert (1.0ms)[0m  INSERT INTO "statuses" ("content", "created_at", "updated_at", "id", "user_id") VALUES ('MyText', '2013-05-12 18:01:26', '2013-05-12 18:01:26', 298486374, 656794443)
+  [1m[36mFixture Delete (1.0ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "profile_name", "created_at", "updated_at", "id") VALUES ('Kris', 'Vigfusson', 'kvigfusson@gmail.com', 'krizpy86', '2013-05-12 18:01:26', '2013-05-12 18:01:26', 656794443)
+  [1m[36m (72.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mUser Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'kvigfusson@gmail.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."profile_name" = 'krizpy86' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."profile_name" IS NULL LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."profile_name" IS NULL LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."profile_name" IS NULL LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."profile_name" = 'My Profile With Spaces' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 656794443]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."profile_name" = 'krizpy86' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "statuses"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "statuses" ("content", "created_at", "updated_at", "id", "user_id") VALUES ('MyText', '2013-05-12 18:03:46', '2013-05-12 18:03:46', 980190962, 656794443)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "statuses" ("content", "created_at", "updated_at", "id", "user_id") VALUES ('MyText', '2013-05-12 18:03:46', '2013-05-12 18:03:46', 298486374, 656794443)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "profile_name", "created_at", "updated_at", "id") VALUES ('Kris', 'Vigfusson', 'kvigfusson@gmail.com', 'krizpy86', '2013-05-12 18:03:46', '2013-05-12 18:03:46', 656794443)
+  [1m[36m (95.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mUser Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'kvigfusson2@gmail.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."profile_name" = 'krizpy869' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."profile_name" IS NULL LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."profile_name" IS NULL LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."profile_name" IS NULL LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."profile_name" = 'My Profile With Spaces' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 656794443]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."profile_name" = 'krizpy86' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (1.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "statuses"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "statuses" ("content", "created_at", "updated_at", "id", "user_id") VALUES ('MyText', '2013-05-12 18:07:37', '2013-05-12 18:07:37', 980190962, 656794443)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "statuses" ("content", "created_at", "updated_at", "id", "user_id") VALUES ('MyText', '2013-05-12 18:07:37', '2013-05-12 18:07:37', 298486374, 656794443)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (1.0ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "profile_name", "created_at", "updated_at", "id") VALUES ('Kris', 'Vigfusson', 'kvigfusson@gmail.com', 'krizpy86', '2013-05-12 18:07:37', '2013-05-12 18:07:37', 656794443)
+  [1m[36m (100.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'kvigfusson2@gmail.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."profile_name" = 'krizpy869' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (1.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."profile_name" IS NULL LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."profile_name" IS NULL LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."profile_name" IS NULL LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'kvigfusson2@gmail.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."profile_name" = 'My Profile With Spaces' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 656794443]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."profile_name" = 'krizpy86' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction

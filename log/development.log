@@ -17665,3 +17665,91 @@ Served asset /statuses.js - 304 Not Modified (0ms)
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-05-12 11:38:21 -0500
 Served asset /application.js - 304 Not Modified (0ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2013-05-12 12:55:06 -0500
+Processing by StatusesController#index as HTML
+  [1m[36mStatus Load (1.0ms)[0m  [1mSELECT "statuses".* FROM "statuses" [0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  Rendered statuses/index.html.erb within layouts/application (64.0ms)
+Completed 200 OK in 170ms (Views: 119.0ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-05-12 12:55:07 -0500
+Served asset /application.css - 304 Not Modified (8ms)
+
+
+Started GET "/assets/statuses.css?body=1" for 127.0.0.1 at 2013-05-12 12:55:07 -0500
+Served asset /statuses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-05-12 12:55:07 -0500
+Served asset /scaffolds.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2013-05-12 12:55:07 -0500
+Served asset /bootstrap.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-05-12 12:55:07 -0500
+Served asset /jquery.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-05-12 12:55:07 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2013-05-12 12:55:07 -0500
+Served asset /bootstrap.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/statuses.js?body=1" for 127.0.0.1 at 2013-05-12 12:55:07 -0500
+Served asset /statuses.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-05-12 12:55:07 -0500
+Served asset /application.js - 304 Not Modified (24ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2013-05-12 12:55:16 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (2.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (126.0ms)
+Completed 200 OK in 137ms (Views: 136.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-05-12 12:55:16 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2013-05-12 12:55:16 -0500
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-05-12 12:55:16 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/statuses.css?body=1" for 127.0.0.1 at 2013-05-12 12:55:16 -0500
+Served asset /statuses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-05-12 12:55:16 -0500
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-05-12 12:55:16 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2013-05-12 12:55:16 -0500
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/statuses.js?body=1" for 127.0.0.1 at 2013-05-12 12:55:16 -0500
+Served asset /statuses.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-05-12 12:55:17 -0500
+Served asset /application.js - 304 Not Modified (0ms)
