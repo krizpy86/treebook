@@ -17753,3 +17753,4 @@ Served asset /statuses.js - 304 Not Modified (0ms)
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-05-12 12:55:17 -0500
 Served asset /application.js - 304 Not Modified (0ms)
+Connecting to database specified by database.yml
