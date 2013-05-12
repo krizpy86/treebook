@@ -3,3 +3,9 @@ kris:
  last_name: "Vigfusson"
  email: "kvigfusson@gmail.com"
  profile_name: "krizpy86"
+
+jim:
+ first_name: "Jim"
+ last_name: "Hoskins"
+ email: "jhoskins@gmail.com"
+ profile_name: "jimhoskins"
