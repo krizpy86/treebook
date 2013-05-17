@@ -4,10 +4,11 @@
 
 <% if @statuses %>
 	<% @statuses.each do |status| %>
+	<%= image_tag status.user.gravatar_url %>
 	 <div class="well">
 	 	<%= status.content %>
-	 	<hr />
-	 	<%= link_to time_ago_in_words(status.created_at), status_path(status) %> ago
+		<hr />
+		<%= link_to time_ago_in_words(status.created_at), status_path(status) %> ago
 	 </div>
 	<% end %>
 <% end %>

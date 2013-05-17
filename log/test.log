@@ -18735,3 +18735,46 @@ Processing by ProfilesController#show as HTML
   [1m[35mStatus Load (0.0ms)[0m  SELECT "statuses".* FROM "statuses" WHERE "statuses"."user_id" = 656794443
 Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.0ms)
   [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (1.0ms)[0m  DELETE FROM "statuses"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "statuses" ("content", "created_at", "updated_at", "id", "user_id") VALUES ('MyText', '2013-05-12 19:41:07', '2013-05-12 19:41:07', 980190962, 656794443)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "statuses" ("content", "created_at", "updated_at", "id", "user_id") VALUES ('MyText', '2013-05-12 19:41:07', '2013-05-12 19:41:07', 298486374, 656794443)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "statuses" ("content", "created_at", "updated_at", "id", "user_id") VALUES ('Hi I''m Jim', '2013-05-12 19:41:07', '2013-05-12 19:41:07', 113629430, 1027431151)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "profile_name", "created_at", "updated_at", "id") VALUES ('Kris', 'Vigfusson', 'kvigfusson@gmail.com', 'krizpy86', '2013-05-12 19:41:07', '2013-05-12 19:41:07', 656794443)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "profile_name", "created_at", "updated_at", "id") VALUES ('Jim', 'Hoskins', 'jhoskins@gmail.com', 'jimhoskins', '2013-05-12 19:41:07', '2013-05-12 19:41:07', 1027431151)
+  [1m[36m (126.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 656794443]]
+Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"krizpy86"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."profile_name" = 'krizpy86' LIMIT 1
+  [1m[36mStatus Load (0.0ms)[0m  [1mSELECT "statuses".* FROM "statuses" WHERE "statuses"."user_id" = 656794443[0m
+  Rendered profiles/show.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 102ms (Views: 60.0ms | ActiveRecord: 1.0ms)
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 656794443 LIMIT 1
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 656794443 LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 656794443]]
+Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"krizpy86"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."profile_name" = 'krizpy86' LIMIT 1[0m
+  [1m[35mStatus Load (0.0ms)[0m  SELECT "statuses".* FROM "statuses" WHERE "statuses"."user_id" = 656794443
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"doesn't exist"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."profile_name" = 'doesn''t exist' LIMIT 1[0m
+Completed 404 Not Found in 4ms (Views: 4.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 656794443]]
+Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"krizpy86"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."profile_name" = 'krizpy86' LIMIT 1[0m
+  [1m[35mStatus Load (0.0ms)[0m  SELECT "statuses".* FROM "statuses" WHERE "statuses"."user_id" = 656794443
+Completed 200 OK in 4ms (Views: 2.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
